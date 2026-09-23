@@ -2,10 +2,12 @@ import {useState} from "react";
 import Header from "./components/Header";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
+import TaskFilter from "./components/TaskFilter";
 
 
 function App(){
   const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState("all");
   
   const addTask = (newTask) => {
     setTasks((previousTasks) => {
@@ -45,22 +47,38 @@ function App(){
               title: newTitle.trim(),
             };
           }
-          
+
           return item;
         });
       });
     }
   };
 
-      
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "active") {
+      return !task.completed;
+    }
 
+    if (filter === "completed") {
+     return task.completed;
+      
+    }
+    return true;
+
+  });
+
+    
   return (
     <div className="app">
       <Header />
       <TaskForm onAddTask={addTask} />
+      <TaskFilter
+        currentFilter={filter}
+        onFilterChange={setFilter}
+      /> 
       
       <TaskList
-        tasks={tasks}
+        tasks={filteredTasks}
         onToggle={toggleTask}
         onDelete={deleteTask}
         onEdit={editTask}

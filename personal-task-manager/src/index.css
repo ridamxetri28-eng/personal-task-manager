@@ -33,3 +33,25 @@
 button{
   cursor:pointer;
 }
+
+
+.task-filter {
+  display: flex;
+  margin:20px 0;
+  gap: 10px;
+}
+
+.task-filter button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+
+.task-filter button.active {
+  background: #333;
+  color: white;
+}
+
