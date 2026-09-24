@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import TaskFilter from "./components/TaskFilter";
+import TaskStats from "./components/TaskStats";
 
 
 function App(){
@@ -76,7 +77,7 @@ function App(){
         currentFilter={filter}
         onFilterChange={setFilter}
       /> 
-      
+      <TaskStats tasks={tasks} />
       <TaskList
         tasks={filteredTasks}
         onToggle={toggleTask}
