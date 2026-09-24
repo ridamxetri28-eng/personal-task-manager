@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Header from "./components/Header";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
@@ -7,8 +7,18 @@ import TaskStats from "./components/TaskStats";
 
 
 function App(){
-  const [tasks, setTasks] = useState([]);
-  const [filter, setFilter] = useState("all");
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+   const [filter, setFilter] = useState("all");
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+
   
   const addTask = (newTask) => {
     setTasks((previousTasks) => {
