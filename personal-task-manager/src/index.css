@@ -67,3 +67,39 @@ button{
 .task-stats p {
   margin: 0;
 }
+
+@media (max-width: 600px) {
+  .app {
+    width:90%;
+    margin: 20px auto;
+  }
+
+  .task-filter{
+    flex-direction: column;
+  }
+
+  .task-filter button {
+    width: 100%;
+
+  }
+
+  .task-Stats{
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .task-actions {
+    width: 100%;
+  }
+
+  .task-actions button {
+    width: 100%;
+  }
+}
