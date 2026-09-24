@@ -2,6 +2,9 @@
 
 A simple Personal task Manager Built with React.
 
+**GitHub Repository:**  
+https://github.com/ridamxetri28-eng/personal-task-manager
+
 ## Description
 
 This Project allows user to create and manage daily tasks using a simple and responsive interface.
